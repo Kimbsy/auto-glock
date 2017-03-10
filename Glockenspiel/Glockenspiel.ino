@@ -1,78 +1,52 @@
 #include <Servo.h>
 
-Servo servo1, servo2, servo3, servo4, servo5;
-//int pos = 0;
-
+// Declare the servo objects.
+Servo servo_1, servo_2, servo_3, servo_4, servo_5;
 
 void setup() {
-  // put your setup code here, to run once:
-  servo1.attach(7);
-  servo2.attach(8);
-  servo3.attach(9);
-  servo4.attach(10);
-  servo5.attach(11);
+  // Attach the servos to their pins.
+  servo_1.attach(7);
+  servo_2.attach(8);
+  servo_3.attach(9);
+  servo_4.attach(10);
+  servo_5.attach(11);
 
+  // Start the servos at 95.
+  servo_1.write(95);
+  servo_2.write(95);
+  servo_3.write(95);
+  servo_4.write(95);
+  servo_5.write(95);
+  delay(1000);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
 
-//  servo1.write(90);
-//  delay(500);
-  servo1.write(95);
-  delay(2000);
-  servo1.write(85);
-  delay(60);
-  servo1.write(95);
+  hit(servo_1);
+  delay(1000);
+  hit(servo_2);
+  delay(1000);
 
-//  servo2.write(90);
-  delay(500);
-  servo2.write(95);
-  delay(2000);
-  servo2.write(85);
+
+  // servo1.write(95);
+  // delay(1000);
+  // servo1.write(85);
+  // delay(60);
+  // servo1.write(95);
+
+  // delay(500);
+  // servo2.write(95);
+  // delay(1000);
+  // servo2.write(85);
+  // delay(60);
+  // servo2.write(95);
+  // delay(500);
+
+}
+
+public void hit(Servo servo) {
+  servo.write(85);
   delay(60);
-  servo2.write(95);
-  delay(500);
-//
-//  servo3.write(90);
-//  delay(500);
-//  servo3.write(95);
-//  delay(500);
-//  servo3.write(85);
-//  delay(150);
-//
-//  servo2.write(90);
-//  delay(500);
-//  servo2.write(95);
-//  delay(500);
-//  servo2.write(85);
-//  delay(150);
-//
-//  servo4.write(90);
-//  delay(500);
-//  servo4.write(95);
-//  delay(500);
-//  servo4.write(85);
-//  delay(150);
-//
-//  servo2.write(90);
-//  delay(500);
-//  servo2.write(95);
-//  delay(500);
-//  servo2.write(85);
-//  delay(150);
-//
-//  servo3.write(90);
-//  delay(500);
-//  servo3.write(95);
-//  delay(500);
-//  servo3.write(85);
-//  delay(150);
-//
-//  servo2.write(90);
-//  delay(500);
-//  servo2.write(95);
-//  delay(500);
-//  servo2.write(85);
-//  delay(150);
+  servo.write(95);
+  delay(60);
 }
