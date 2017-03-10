@@ -23,28 +23,17 @@ void setup() {
 void loop() {
 
   hit(servo_1);
-  delay(1000);
   hit(servo_2);
-  delay(1000);
+  hit(servo_3);
+  hit(servo_2);
 
-
-  // servo1.write(95);
-  // delay(1000);
-  // servo1.write(85);
-  // delay(60);
-  // servo1.write(95);
-
-  // delay(500);
-  // servo2.write(95);
-  // delay(1000);
-  // servo2.write(85);
-  // delay(60);
-  // servo2.write(95);
-  // delay(500);
-
+  hit(servo_4);
+  hit(servo_2);
+  hit(servo_3);
+  hit(servo_2);
 }
 
-public void hit(Servo servo) {
+void hit(Servo servo) {
   servo.write(85);
   delay(60);
   servo.write(95);
