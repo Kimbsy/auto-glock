@@ -1,5 +1,7 @@
 #include <Servo.h>
 
+int BEAT = 480;
+
 // Declare the servo objects.
 Servo servo_1, servo_2, servo_3, servo_4, servo_5;
 
@@ -22,20 +24,24 @@ void setup() {
 
 void loop() {
 
-  hit(servo_1);
-  hit(servo_2);
-  hit(servo_3);
-  hit(servo_2);
+  if (digitalRead(2)) {
+    return;
+  }
 
-  hit(servo_4);
-  hit(servo_2);
-  hit(servo_3);
-  hit(servo_2);
+  hit(servo_1, 1);
+  hit(servo_2, 1);
+  hit(servo_3, 1);
+  hit(servo_2, 1);
+
+  hit(servo_4, 1);
+  hit(servo_2, 1);
+  hit(servo_3, 1);
+  hit(servo_2, 1);
 }
 
-void hit(Servo servo) {
+void hit(Servo servo, int thing) {
   servo.write(85);
   delay(60);
   servo.write(95);
-  delay(60);
+  delay((int)(BEAT * thing));
 }
