@@ -1,11 +1,17 @@
 #include <Servo.h>
 
 int BEAT = 480;
+float FULL = 1.0;
+float HALF = 0.5;
+float QUARTER = 0.25;
+float EIGHTH = 0.125;
 
 // Declare the servo objects.
 Servo servo_1, servo_2, servo_3, servo_4, servo_5;
 
 void setup() {
+  Serial.begin(9600);
+  
   // Attach the servos to their pins.
   servo_1.attach(7);
   servo_2.attach(8);
@@ -28,20 +34,21 @@ void loop() {
     return;
   }
 
-  hit(servo_1, 1);
-  hit(servo_2, 1);
-  hit(servo_3, 1);
-  hit(servo_2, 1);
+  hit(servo_1, FULL);
+  hit(servo_2, FULL);
+  hit(servo_3, FULL);
+  hit(servo_2, FULL);
 
-  hit(servo_4, 1);
-  hit(servo_2, 1);
-  hit(servo_3, 1);
-  hit(servo_2, 1);
+  hit(servo_4, FULL);
+  hit(servo_2, FULL);
+  hit(servo_3, FULL);
+  hit(servo_2, FULL);
 }
 
-void hit(Servo servo, int thing) {
+void hit(Servo servo, float beat_length) {
+  Serial.println(beat_length);
   servo.write(85);
   delay(60);
   servo.write(95);
-  delay((int)(BEAT * thing));
+  delay((int)(BEAT * beat_length));
 }
